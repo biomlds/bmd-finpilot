@@ -65,6 +65,17 @@ FROM ghcr.io/ublue-os/base-main:latest@sha256:de94ce1030b39bb418dfce5ecb1a4c8bae
 
 # RUN rm /opt && mkdir /opt
 
+
+### HOMEBREW INTEGRATION
+## Install the Homebrew system files from the @ublue-os/brew OCI layer.
+## This copies the brew system integration (shell profile, systemd units, etc.)
+## into the image so that Homebrew is available to users at login.
+## Actual Homebrew package installation happens at runtime (first login),
+## or via a brew bundle in your build scripts.
+RUN --mount=type=bind,from=ctx,source=/oci/brew,target=/ctx/brew \
+    rsync -rvK /ctx/brew/ /
+
+
 ### MODIFICATIONS
 ## Make modifications desired in your image and install packages by modifying the build scripts.
 ## The following RUN directive mounts the ctx stage which includes:
