@@ -1,0 +1,72 @@
+# Default Flatpak applications
+# These will be installed on first boot
+# Format: INI file with [Flatpak Preinstall NAME] groups
+# See: https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-preinstall
+
+# Web Browsers
+#[Flatpak Preinstall org.mozilla.firefox]
+#Branch=stable
+
+[Flatpak Preinstall org.mozilla.Thunderbird]
+Branch=stable
+
+[Flatpak Preinstall com.brave.Browser]
+Branch=stable
+
+# System Utilities
+[Flatpak Preinstall com.github.tchx84.Flatseal]
+Branch=stable
+
+
+[Flatpak Preinstall io.github.flattool.Warehouse]
+Branch=stable
+
+[Flatpak Preinstall io.github.flattool.Ignition]
+Branch=stable
+
+
+[Flatpak Preinstall org.keepassxc.KeePassXC]
+Branch=stable
+
+# Dev
+[Flatpak Preinstall com.vscodium.codium]
+Branch=stable
+
+[Flatpak Preinstall org.gimp.GIMP]
+Branch=stable
+
+# Office
+[Flatpak Preinstall org.onlyoffice.desktopeditors]
+Branch=stable
+
+[Flatpak Preinstall org.telegram.desktop]
+Branch=stable
+
+[Flatpak Preinstall ]
+Branch=stable
+
+[Flatpak Preinstall ]
+Branch=stable
+
+
+
+[Flatpak Preinstall org.gnome.Connections]
+Branch=stable
+
+
+[Flatpak Preinstall org.cryptomator.Cryptomator]
+Branch=stable
+
+# Notes
+[Flatpak Preinstall com.vscodium.codium]
+md.obsidian.Obsidian
+Branch=stable
+
+
+# Universal Blue Specific
+[Flatpak Preinstall com.ranfdev.DistroShelf]
+Branch=stable
+
+[Flatpak Preinstall io.github.kolunmi.Bazaar]
+Branch=stable
+
