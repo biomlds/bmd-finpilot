@@ -1,7 +1,7 @@
 ###############################################################################
 # PROJECT NAME CONFIGURATION
 ###############################################################################
-# Name: finpilot
+Name: bmd-finpilot
 #
 # IMPORTANT: Change "finpilot" above to your desired project name.
 # This name should be used consistently throughout the repository in:
@@ -23,13 +23,13 @@
 #
 # 1. Context Stage (ctx) - Combines resources from:
 #    - Local build scripts and custom files
-#    - @projectbluefin/common - Desktop configuration shared with Aurora 
+#    - @projectbluefin/common - Desktop configuration shared with Aurora
 #    - @ublue-os/brew - Homebrew integration
 #
 # 2. Base Image Options:
 #    - `ghcr.io/ublue-os/silverblue-main:latest` (Fedora and GNOME)
-#    - `ghcr.io/ublue-os/base-main:latest` (Fedora and no desktop 
-#    - `quay.io/centos-bootc/centos-bootc:stream10 (CentOS-based)` 
+#    - `ghcr.io/ublue-os/base-main:latest` (Fedora and no desktop
+#    - `quay.io/centos-bootc/centos-bootc:stream10 (CentOS-based)`
 #
 # See: https://docs.projectbluefin.io/contributing/ for architecture diagram
 ###############################################################################
@@ -45,10 +45,10 @@ COPY --from=ghcr.io/projectbluefin/common:latest@sha256:b8fe93b16674a547b4cf3849
 COPY --from=ghcr.io/ublue-os/brew:latest@sha256:ca91068f51ce663d495ccfc829352d6621ec95f6c7db447ade55023b222f9762 /system_files /oci/brew
 
 # Base Image - GNOME included
-FROM ghcr.io/ublue-os/silverblue-main:latest@sha256:f8d5fd28aa7bb0ed9e17e98e4f9fb174b6961a2dc4a3113b78c5dff4af5bdf6f
-
+# FROM ghcr.io/ublue-os/silverblue-main:latest@sha256:f8d5fd28aa7bb0ed9e17e98e4f9fb174b6961a2dc4a3113b78c5dff4af5bdf6f
+FROM ghcr.io/ublue-os/base-main:late@stsha256:de94ce1030b39bb418dfce5ecb1a4c8bae480280ce22656cb775c37a08ae9f58
 ## Alternative base images, no desktop included (uncomment to use):
-# FROM ghcr.io/ublue-os/base-main:latest    
+# FROM ghcr.io/ublue-os/base-main:latest
 # FROM quay.io/centos-bootc/centos-bootc:stream10
 
 ## Alternative GNOME OS base image (uncomment to use):
@@ -81,7 +81,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build/10-build.sh
-    
+
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint

@@ -1,10 +1,10 @@
-# finpilot
+# bmd-finpilot
 
-A template for building custom bootc operating system images based on the lessons from [Universal Blue](https://universal-blue.org/) and [Bluefin](https://projectbluefin.io). It is designed to be used manually, but is optimized to be bootstraped by GitHub Copilot. After set up you'll have your own custom Linux. 
+A template for building custom bootc operating system images based on the lessons from [Universal Blue](https://universal-blue.org/) and [Bluefin](https://projectbluefin.io). It is designed to be used manually, but is optimized to be bootstraped by GitHub Copilot. After set up you'll have your own custom Linux.
 
 This template uses the **multi-stage build architecture** from , combining resources from multiple OCI containers for modularity and maintainability. See the [Architecture](#architecture) section below for details.
 
-**Unlike previous templates, you are not modifying Bluefin and making changes.**: You are assembling your own Bluefin in the same exact way that Bluefin, Aurora, and Bluefin LTS are built. This is way more flexible and better for everyone since the image-agnostic and desktop things we love about Bluefin lives in @projectbluefin/common. 
+**Unlike previous templates, you are not modifying Bluefin and making changes.**: You are assembling your own Bluefin in the same exact way that Bluefin, Aurora, and Bluefin LTS are built. This is way more flexible and better for everyone since the image-agnostic and desktop things we love about Bluefin lives in @projectbluefin/common.
 
  Instead, you create your own OS repository based on this template, allowing full customization while leveraging Bluefin's robust build system and shared components.
 
@@ -81,7 +81,7 @@ Important: Change `finpilot` to your repository name in these 6 files:
 - Go to the "Actions" tab in your repository
 - Click "I understand my workflows, go ahead and enable them"
 
-Your first build will start automatically! 
+Your first build will start automatically!
 
 Note: Image signing is disabled by default. Your images will build successfully without any signing keys. Once you're ready for production, see "Optional: Enable Image Signing" below.
 
@@ -237,7 +237,7 @@ Alternative approach using a temporary tag for clarity:
       rechunk --max-layers 67 \
       "localhost/${IMAGE_NAME}:${DEFAULT_TAG}" \
       "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked"
-    
+
     # Tag the rechunked image with the original tag
     sudo podman tag "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked" "localhost/${IMAGE_NAME}:${DEFAULT_TAG}"
     sudo podman rmi "localhost/${IMAGE_NAME}:${DEFAULT_TAG}-rechunked"
