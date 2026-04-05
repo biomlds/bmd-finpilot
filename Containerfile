@@ -91,6 +91,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    chmod +x /ctx/build/10-build.sh /ctx/build/30-river-desktop.sh && \
     /ctx/build/10-build.sh && /ctx/build/30-river-desktop.sh
 
 ### LINTING
