@@ -91,7 +91,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    bash /ctx/build/10-build.sh && bash /ctx/build/30-river-desktop.sh
+    bash /ctx/build/10-build.sh && bash /ctx/build/30-cosmic-desktop.sh
 
 ### LINTING
 ## Verify final image and contents are correct.
