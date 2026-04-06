@@ -18,7 +18,6 @@ echo "::group:: Install River Desktop"
 # Install River (compositor), greetd (login manager), foot (terminal), tuigreet (greeter UI)
 dnf5 install -y \
     river \
-    river-utils \
     greetd \
     foot \
     tuigreet \
